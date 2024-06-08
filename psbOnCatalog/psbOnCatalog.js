@@ -7,7 +7,7 @@ products = Array.from(products);
 
 let savedProducts = products;
 
-let updatableProductList = []
+let updatableProductList = [];
 
 savedProducts.forEach((product) => {
   let productData = {
@@ -20,10 +20,13 @@ savedProducts.forEach((product) => {
   productData.category = product.children[1].children[0].children[0].innerText;
   productData.description =
     product.children[1].children[0].children[1].innerText;
-  productData.thumbnail.push(
-    product.children[0].children[0].children[0].attributes.href.value
-  );
-  updatableProductList.push(productData)
+
+    productData.thumbnail.push(
+      product.children[0].children[0].children[0].children[0].attributes
+        .src.value
+    );
+
+  updatableProductList.push(productData);
 });
 
 console.log("updatableProductList: ", updatableProductList);
